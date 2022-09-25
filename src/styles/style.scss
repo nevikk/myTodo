@@ -1,0 +1,344 @@
+//<Миксины>---------------------------------
+@import "mixins";
+//------------------------------------------
+
+//<Подключаем шрифты>-----------------------
+//&display=swap&subset=cyrillic-ext
+@import "fonts";
+//------------------------------------------
+
+//<Иконочный шрифт>-------------------------
+// @import "icons";
+//------------------------------------------
+
+//<Шрифт по умолчанию>----------------------
+$fontFamily: "Roboto", sans-serif;
+//------------------------------------------
+
+//<Переменные>------------------------------
+$minWidth: 320px;
+$maxWidth: 1440px;
+$maxWidthContainer: 1140;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+$mainColor: #000;
+$grayColor: #767171;
+$grayHoverColor: #363535;
+$blueColor: #6aa4d9;
+$blueHoverColor: #4d79a1;
+$greenColor: #19b861;
+$greenHoverColor: #158a49;
+
+//------------------------------------------
+
+//<Обнуление, Общие параметры>--------------
+@import "null";
+body {
+	font-family: $fontFamily;
+	color: $mainColor;
+	font-size: 16px;
+	&._lock {
+		overflow: hidden;
+	}
+}
+//------------------------------------------
+
+//<Оболочка>--------------------------------
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	&._loaded {
+	}
+}
+//------------------------------------------
+
+//<Основная сетка>--------------------------
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0 15px;
+	// @media (max-width: $md1+px){
+	// 	max-width: 970px;
+	// }
+	// @media (max-width: $md2+px){
+	// 	max-width: 759px;
+	// }
+	// @media (max-width: $md3+px){
+	// 	max-width: none;
+	// 	padding: 0 10px;
+	// }
+}
+//-------------------------------------------
+
+//<Forms>------------------------------------
+@import "forms";
+//-------------------------------------------
+
+//<UI>---------------------------------------
+@import "ui";
+//-------------------------------------------
+
+//<Header>-----------------------------------
+@import "header";
+//-------------------------------------------
+.todo {
+
+	&__wrapper {
+		display: flex;
+		height: calc(100vh - 50px);
+	}
+
+	&__list {
+		// flex: 1 1 30%;
+		// max-width: 30%;
+		padding: 30px 10px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		position: relative;
+	}
+
+	&__resize {
+		height: 100%;
+		flex: 0 0 3px;
+		background-color: #3b82f6;
+		z-index: 5;
+		cursor: col-resize;
+	}
+
+
+	&__redact {
+		flex: 1 0 auto;
+		// border: 1px solid $mainColor;
+	}
+
+	&__item {
+		margin-bottom: 16px;
+	}
+
+	&__none {
+		font-weight: 500;
+		font-size: 18px;
+		color: $grayColor;
+	}
+}
+
+.item-todo {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	border: 2px solid $mainColor;
+	padding: 10px;
+	transition: all 0.4s ease 0s;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	&:hover {
+		background-color: #f3f6f8;
+	}
+	&.waiting {
+		border: 2px solid $grayColor;
+		color: $grayColor;
+	}
+	&.progress {
+		border: 2px solid $blueColor;
+		color: $blueColor;
+	}
+	&.completed {
+		border: 2px solid $greenColor;
+		color: $greenColor;
+	}
+
+	&__body {
+		max-width: calc(100% - 100px);
+	}
+
+	&__name{
+		margin-bottom: 8px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__delete {
+	}
+}
+
+.todo-form {
+
+	// .todo-from._error
+
+	&._error {
+
+		// .todo-form__name
+
+		.todo-form__name {
+			border: 1px solid #dc2626;
+		}
+
+		// .todo-form__error
+
+		.todo-form__error {
+			text-align: center;
+			color: #dc2626;
+			margin-bottom: 8px;
+		}
+	}
+
+	// .todo-from__name
+
+	&__name {
+		margin-bottom: 16px;
+	}
+
+	// .todo-from__btn
+
+	&__btn {
+		padding: 10px 15px;
+	}
+
+}
+
+.redact-todo {
+	padding: 30px 10px;
+	position: relative;
+
+	// .redact-todo__close
+
+	&__close {
+		position: relative;
+		top: -12px;
+		left: 100%;
+		width: 14px;
+		height: 14px;
+		transform: translateX(-200%);
+		cursor: pointer;
+		span {
+			display: inline-block;
+			width: 100%;
+			height: 2px;
+			background-color: black;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			&:last-child {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+	}
+
+	// .redact-todo__body
+
+	&__body{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		flex-direction: column;
+	}
+
+	// .redact-todo__title
+
+	&__title {
+		font-size: 24px;
+		line-height: 1.2em;
+	}
+
+	// .redact-todo__items
+
+	&__items {
+		padding-top: 24px;
+	}
+
+	// .redact-todo__item 
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+
+	// .redact-todo__input-title 
+
+	&__input-title {
+		margin-bottom: 8px;
+	}
+
+	// .redact-todo__input
+
+	&__input{
+		max-width: 600px;
+	}
+
+	// .redact-todo__status-btns
+
+	&__status-btns {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		row-gap: 8px;
+		column-gap: 10px;
+	}
+
+	// redact-todo__btn
+
+	&__btn {
+		&.not-active {
+			border: 2px solid #9CA3AF;
+			color: #9CA3AF;
+			&:hover {
+				border: 2px solid #111827;
+				color: #111827;
+			}
+		}
+	}
+
+	// .redact-todo__status-title
+
+	&__status-title {
+		flex: 1 0 100%;
+	}
+
+	// .redact-todo__submit
+
+	&__submit {
+	}
+
+}
+
+.item-enter {
+	opacity: 0;
+	transform: translateX(100%)
+ }
+ .item-enter-active {
+	opacity: 1;
+	transform: translateX(0%);
+	transition: all 300ms ease-in;
+ }
+ .item-exit {
+	opacity: 1;
+	transform: translateX(0%);
+ }
+ .item-exit-active {
+	opacity: 0;
+	transform: translateX(100%);
+	transition: all 300ms ease-in;
+ }
+
+
+

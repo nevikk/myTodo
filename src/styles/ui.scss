@@ -1,0 +1,178 @@
+.modal {
+	&__backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		pointer-events: none;
+		transition: all 0.3s ease 0s;
+		z-index: -1;
+		&._active {
+			opacity: 1;
+			pointer-events: all;
+			z-index: 100;
+		}
+	}
+
+	&__item {
+		background-color: #fff;
+		border-radius: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 20px;
+		transform: scale(0.5);
+		transition: transform 0.3s ease 0s;
+		&._active {
+			transform: scale(1);
+		}
+	}
+
+	&__title {
+		font-size: 20px;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+}
+
+.myButton {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid $blueColor;
+	color: $blueColor;
+	transition: all 0.3s ease 0s;
+
+	// .myButton_white
+	&_white {
+		color: #fff;
+		border: 2px solid #fff;
+		&:hover {
+			color: #cbd5e1;
+			border: 2px solid #cbd5e1;
+		}
+	}
+
+	// .myButton_completed
+
+	&_completed {
+		border: 2px solid $greenColor;
+		color: $greenColor;
+		&:hover {
+			border: 2px solid $greenHoverColor;
+			color: $greenHoverColor;
+		}
+	}
+
+	// .myButton_progress
+
+	&_progress {
+		border: 2px solid $blueColor;
+		color: $blueColor;
+		&:hover {
+			border: 2px solid $blueHoverColor;
+			color: $blueHoverColor;
+		}
+	}
+
+	// .myButton_waiting
+
+	&_waiting {
+		border: 2px solid $grayColor;
+		color: $grayColor;
+		&:hover {
+			border: 2px solid $grayHoverColor;
+			color: $grayHoverColor;
+		}
+	}
+}
+.myInput {
+	width: 100%;
+	padding: 10px 15px;
+	border: none;
+	background-color: #e8e8eb;
+	border-radius: 10px;
+	font-size: 16px;
+	transition: all 0.3s ease 0s;
+	&:focus {
+		box-shadow: 0px 0px 10px 3px rgba(171, 200, 234, 0.2);
+	}
+}
+
+.mySort {
+	position: relative;
+	margin-bottom: 24px;
+	// .mySort__btn
+	
+	&__btn {
+		background: #e8e8eb;
+		padding: 10px 30px 10px 10px;
+		border-radius: 10px;
+		display: inline-block;
+		width: 100%;
+		font-size: 16px;
+		text-align: left;
+		position: relative;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25 3.9585L4.29289 7.00139C4.68342 7.39191 5.31658 7.39191 5.70711 7.00139L8.75 3.9585' stroke='%23606483' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center/cover;
+		}
+	}
+
+	// .mySort__list
+
+	&__list {
+		background: #e8e8eb;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		z-index: -1;
+		transition: all 0.3s ease 0s;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border-radius: 10px;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: all;
+			top: calc(100% + 10px);
+			z-index: 100;
+		}
+	}
+
+	// .mySort__item
+	&__item {
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		padding: 16px 16px;
+		border-radius: 10px;
+		&:hover {
+			background-color: #c5c5cc;
+		}
+	}
+}

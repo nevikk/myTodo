@@ -1,0 +1,23 @@
+.header {
+	background: -webkit-linear-gradient(270deg, #3b82f6,#3d5dff,#002aff);
+	background: linear-gradient(270deg, #3b82f6,#3d5dff,#002aff);
+	
+	// .header__wrapper
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		min-height: 50px;
+		padding-left: 10px;
+	}
+
+	// .header__title
+
+	&__title {
+		font-size: 20px;
+		font-weight: 700;
+		color: #fff;
+		margin-right: 20px;
+	}
+
+}
