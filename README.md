@@ -2,6 +2,13 @@
 
 https://anatoliinovikov.ru/projects/todo/
 
+# Информация о проекте
+
+Проект реализован на React+Ts<br/>
+Данные подгружаются, с помощью api, и рендерятся на клиенте, можно добавлять, удалять и изменять задачи<br/>
+Реализован поиск и сортировка задач<bt/>
+Также можно изменять ширину окна списка задач и редактирования задачи.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
